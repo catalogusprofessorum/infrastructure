@@ -28,9 +28,9 @@ RUN rm /etc/nginx/sites-enabled/default
 RUN ln -s /etc/nginx/sites-available/ontowiki-nginx.conf /etc/nginx/sites-enabled/
 
 #config php
-RUN echo "upload_max_filesize = 100M" >> /etc/php5/fpm/php.ini
-RUN echo "post_max_size = 100M" >> /etc/php5/fpm/php.ini
-RUN echo "request_terminate_timeout = 3600" >> /etc/php5/fpm/php.ini
+RUN echo "upload_max_filesize = 100M" >> /etc/php5.6/fpm/php.ini
+RUN echo "post_max_size = 100M" >> /etc/php5.6/fpm/php.ini
+RUN echo "request_terminate_timeout = 3600" >> /etc/php5.6/fpm/php.ini
 
 # Add virtuoso odbc dependency for OntoWiki to me able to connecto to virtuoso
 ADD libvirtodbc0_7.2_amd64.deb /
