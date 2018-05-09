@@ -1,4 +1,4 @@
-FROM ubuntu:18.04
+FROM ubuntu:16.04
 
 MAINTAINER Norman Radtke <radtke@informatik.uni-leipzig.de>
 MAINTAINER Georges Alkhouri <georges.alkhouri@gmail.com>
