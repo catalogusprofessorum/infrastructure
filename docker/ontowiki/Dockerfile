@@ -13,8 +13,8 @@ RUN apt-get update
 
 # install dependencies
 RUN apt-get install -y libldap-2.4-2 libssl1.0.0 unixodbc wget make git nginx-light curl \
-    php5.6 php5.6-fpm php5.6-common php5.6-cli \
-    php5.6-odbc php5.6-curl
+    php5 php5-fpm php5-common php5-cli \
+    php5-odbc php5-curl
 
 # install OntoWiki
 RUN rm -rf /var/www/*
