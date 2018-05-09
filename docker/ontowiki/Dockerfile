@@ -15,7 +15,7 @@ RUN apt-get update
 RUN apt-get install -y libldap-2.4-2 libssl1.0.0 unixodbc wget make git nginx-light curl \
     php5.6 php5.6-fpm php5.6-common php5.6-cli \
     php5.6-odbc php5.6-curl
-
+RUN apt-get install -y php-mbstring php-xml 
 # install OntoWiki
 RUN rm -rf /var/www/*
 RUN git clone -b develop https://github.com/AKSW/OntoWiki.git /var/www/
