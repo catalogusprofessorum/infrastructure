@@ -7,12 +7,12 @@ This repository contains basic infrastructure tools e.g. docker-files for CPL.
 ## Build
 
 ```
-docker-compose -f docker-compose-cpl.yml build
+docker-compose build
 ```
 
 ## Run
 
 ```
-docker-compose -f docker-compose-cpl.yml run
+docker-compose up
 ```
 
