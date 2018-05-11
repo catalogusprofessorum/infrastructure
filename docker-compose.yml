@@ -1,9 +1,9 @@
 virtuoso:
   build: ./docker/virtuoso/
   restart: always
-  ports:
-    - 8890:8890
-    - 1111:1111
+  expose:
+    - 8890
+    - 1111
   environment:
     PWDDBA: "izesek1Taizoo!boo"
   volumes:
@@ -15,7 +15,7 @@ ontowiki:
   links:
     - virtuoso
   ports:
-    - 80:80
+    - 8580:80
   volumes:
     - ./config/ontowiki/:/config/
 
