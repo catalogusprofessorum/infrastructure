@@ -1,4 +1,4 @@
-FROM ubuntu:18.04
+FROM ubuntu:14.04
 
 MAINTAINER Norman Radtke <radtke@informatik.uni-leipzig.de>
 MAINTAINER Georges Alkhouri <georges.alkhouri@gmail.com>
@@ -6,16 +6,14 @@ MAINTAINER Natanael Arndt <arndt@informatik.uni-leipzig.de>
 MAINTAINER Thomas Riechert <thomas.riechert@htwk-leipzig.de>
 
 ENV DEBIAN_FRONTEND noninteractive
-RUN apt-get update
-RUN apt-get install -y software-properties-common
-RUN add-apt-repository ppa:ondrej/php
+
 RUN apt-get update
 
 # install dependencies
 RUN apt-get install -y libldap-2.4-2 libssl1.0.0 unixodbc wget make git nginx-light curl \
-    php5.6 php5.6-fpm php5.6-common php5.6-cli \
-    php5.6-odbc php5.6-curl
-RUN apt-get install -y php5.6-mbstring php5.6-xml 
+    php5 php5-fpm php5-common php5-cli \
+    php5-odbc php5-curl
+
 # install OntoWiki
 RUN rm -rf /var/www/*
 RUN git clone -b develop https://github.com/AKSW/OntoWiki.git /var/www/
@@ -28,9 +26,9 @@ RUN rm /etc/nginx/sites-enabled/default
 RUN ln -s /etc/nginx/sites-available/ontowiki-nginx.conf /etc/nginx/sites-enabled/
 
 #config php
-RUN echo "upload_max_filesize = 100M" >> /etc/php/5.6/fpm/php.ini
-RUN echo "post_max_size = 100M" >> /etc/php/5.6/fpm/php.ini
-RUN echo "request_terminate_timeout = 3600" >> /etc/php/5.6/fpm/php.ini
+RUN echo "upload_max_filesize = 100M" >> /etc/php5/fpm/php.ini
+RUN echo "post_max_size = 100M" >> /etc/php5/fpm/php.ini
+RUN echo "request_terminate_timeout = 3600" >> /etc/php5/fpm/php.ini
 
 # Add virtuoso odbc dependency for OntoWiki to me able to connecto to virtuoso
 ADD libvirtodbc0_7.2_amd64.deb /
